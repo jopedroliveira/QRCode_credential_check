@@ -1,8 +1,11 @@
 package credential.qf2016.com.credential;
 
 
+
 import android.app.FragmentTransaction;
 import android.content.Context;
+
+
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v4.widget.DrawerLayout;
@@ -12,11 +15,14 @@ import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.TextView;
+
+
 import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
 import java.io.IOException;
+
 
 
 public class MainReadActivity extends AppCompatActivity {
@@ -26,10 +32,11 @@ public class MainReadActivity extends AppCompatActivity {
     private TextView barcodeInfo;
     public BarcodeDetector barcodeDetector;
     public CameraSource cameraSource;
-    Vibrator v;
-
+    public Vibrator v;
     public String textInfo;
     public DrawerLayout mDrawerLayout;
+
+
 
 
     @Override
@@ -41,13 +48,12 @@ public class MainReadActivity extends AppCompatActivity {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_main);
 
 
-//        SettingsMenuFragment settingsMenuFragment = (SettingsMenuFragment)
         getSupportFragmentManager().findFragmentById(R.id.drawer_layout_main);
 
         cameraView = (SurfaceView) findViewById(R.id.camera_view);
 
 
-        barcodeInfo = (TextView) findViewById(R.id.code_info);
+        //barcodeInfo = (TextView) findViewById(R.id.code_info);
 
         barcodeDetector = new BarcodeDetector.Builder(this)
                 .setBarcodeFormats(Barcode.QR_CODE)
@@ -55,6 +61,7 @@ public class MainReadActivity extends AppCompatActivity {
 
 
         cameraSource = new CameraSource.Builder(this, barcodeDetector).build();
+
 
 
         cameraView.getHolder().addCallback(new SurfaceHolder.Callback() {
@@ -99,12 +106,12 @@ public class MainReadActivity extends AppCompatActivity {
                 if (barcodes.size() != 0) {
 
 
-                    barcodeInfo.post(new Runnable() {    // Use the post method of the TextView
+                    new Runnable() {    // Use the post method of the TextView
                         public void run() {
 
 
                             v.vibrate(500);
-                            textInfo = barcodes.valueAt(0).displayValue;
+                          // textInfo = barcodes.valueAt(0).displayValue;
 
                             MyFragmentDialog newf = new MyFragmentDialog();
                             FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -114,11 +121,16 @@ public class MainReadActivity extends AppCompatActivity {
                             transaction.commit();
 
                         }
-                    });
+                    };
                 }
             }
 
         });
+
+
+
+
+
 
 
     }
@@ -126,6 +138,11 @@ public class MainReadActivity extends AppCompatActivity {
     public void onBackPressed() {
         // do nothing
     }
+
+
+
+
+
 
 
 }

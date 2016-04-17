@@ -1,37 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/Base.AlertDialog.AppCompat.Light"
     android:layout_width="200dp"
     android:layout_height="match_parent"
-    android:background="#e4e4e4"
+    android:background="@color/navbarBackground"
     android:orientation="vertical">
-
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#c7c7c7"
-        android:padding="16dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Queima das Fitas \nCoimbra 2016"
-            android:textColor="#1e1e1e"
-            android:textSize="14sp" />
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal"
+            android:paddingBottom="6dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="6dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="###"
+                android:textColor="@color/navbarBackground"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#c1c1c1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical"
+            android:paddingBottom="36dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="24dp">
+
+            <TextView
+                android:id="@+id/dayOfWeek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Day,"
+                android:textColor="@color/navbarBackground"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="99/99/9999"
+                android:textColor="@color/navbarBackground"
+                android:textSize="18sp" />
+
+        </LinearLayout>
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:background="#c1c1c1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="48dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="60"
+                android:gravity="center_vertical"
+                android:text="Flash"
+                android:textSize="16sp" />
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/flashStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="40"
+                android:checked="true"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="On" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:gravity="center_vertical"
+                android:text="Porta"
+                android:textSize="16sp" />
+
+            <Spinner
+
+                android:id="@+id/spinnerGates"
+                style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:entries="@array/gates" />
+        </LinearLayout>
     </LinearLayout>
 
-    <TextView
-        android:layout_marginTop="12dp"
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#c1c1c1"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="76dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_above="@+id/closeall"/>
+
+    <Button
+        android:id="@+id/closeall"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Teste de texto"/>
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:text="Sair"
+        android:textAllCaps="false"
+        android:textSize="14sp" />
 
-</LinearLayout>
+
+
+</FrameLayout>

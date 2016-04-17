@@ -23,17 +23,7 @@
             android:focusable="true"
             android:focusableInTouchMode="true" />
 
-        <TextView
-            android:id="@+id/code_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/camera_view"
-            android:layout_marginLeft="16dp"
-            android:paddingBottom="48dp"
-            android:text="Nothing to read."
-            android:textColor="@color/colorAccent"
-            android:textSize="20sp"
-            android:visibility="invisible" />
+
 
 
     </FrameLayout>
