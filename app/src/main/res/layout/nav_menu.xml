@@ -24,7 +24,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="###"
+                android:text="Queima das Fitas Coimbra"
                 android:textColor="@color/navbarBackground"
                 android:textSize="12sp" />
 
@@ -142,7 +142,8 @@
         android:paddingTop="8dp"
         android:text="Sair"
         android:textAllCaps="false"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:onClick="finishApp"/>
 
 
 

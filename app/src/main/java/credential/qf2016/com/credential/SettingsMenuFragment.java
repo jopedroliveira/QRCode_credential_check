@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -77,7 +78,14 @@ public class SettingsMenuFragment extends Fragment {
             }
         });
 
-
+        Button exit = (Button) layout.findViewById(R.id.closeall);
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().finish();
+                System.exit(0);
+            }
+        });
         spinnerGate = (Spinner) layout.findViewById(R.id.spinnerGates);
 
         spinnerGate.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -177,6 +185,7 @@ public class SettingsMenuFragment extends Fragment {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
     }
+
 
 
 }
