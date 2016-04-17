@@ -20,7 +20,7 @@ import java.io.IOException;
 public class MyFragmentDialog extends Fragment {
     private Button sair;
     private Button entrar;
-    TextView info;
+    private TextView info;
 
 
     @Override
@@ -30,6 +30,8 @@ public class MyFragmentDialog extends Fragment {
         View view = inflater.inflate(R.layout.dialog_confirmation, container, false);
         sair = (Button) view.findViewById(R.id.sair);
         entrar = (Button) view.findViewById(R.id.entrar);
+
+        info = (TextView) view.findViewById(R.id.title_information);
         entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,7 +69,7 @@ public class MyFragmentDialog extends Fragment {
         info = (TextView) getView().findViewById(R.id.title_information);
         info.setText(((MainReadActivity) getActivity()).textInfo.toString());
 
-        ((MainReadActivity) getActivity()).cameraSource.stop();
+        ((MainReadActivity)getActivity()).cameraSource.stop();
 
     }
 
