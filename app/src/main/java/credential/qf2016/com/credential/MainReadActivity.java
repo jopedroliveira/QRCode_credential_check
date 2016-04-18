@@ -1,11 +1,12 @@
 package credential.qf2016.com.credential;
 
-import android.app.Activity;
+
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.hardware.Camera;
+
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.SparseArray;
@@ -13,7 +14,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.TextView;
 
-import com.google.android.gms.vision.CameraSource;
+//import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
@@ -25,16 +26,22 @@ public class MainReadActivity extends AppCompatActivity {
 
     public SurfaceView cameraView;
     private TextView barcodeInfo;
-    private BarcodeDetector barcodeDetector;
+    public BarcodeDetector barcodeDetector;
     public CameraSource cameraSource;
+    public CameraSource.Builder cameraSourceB;
     public String textInfo;
     private Vibrator v;
+    private Camera camera;
 
     @Override
+    @SuppressWarnings("deprecation")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_read);
+
+
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
 
         cameraView = (SurfaceView) findViewById(R.id.camera_view);
 
@@ -42,7 +49,10 @@ public class MainReadActivity extends AppCompatActivity {
 
         barcodeDetector = new BarcodeDetector.Builder(this).setBarcodeFormats(Barcode.QR_CODE).build();
 
-        cameraSource = new CameraSource.Builder(this, barcodeDetector).build();
+        cameraSourceB = new CameraSource.Builder(this, barcodeDetector).setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
+        cameraSource = cameraSourceB.build();
+
+
 
 
         cameraView.getHolder().addCallback(new SurfaceHolder.Callback() {
@@ -51,6 +61,8 @@ public class MainReadActivity extends AppCompatActivity {
 
                 try {
                     cameraSource.start(cameraView.getHolder());
+
+
                 } catch (IOException ie) {
                     Log.e("CAMERA SOURCE", ie.getMessage());
                 }
@@ -100,6 +112,7 @@ public class MainReadActivity extends AppCompatActivity {
             }
 
         });
+
 
     }
 

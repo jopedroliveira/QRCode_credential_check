@@ -1,5 +1,6 @@
 package credential.qf2016.com.credential;
 
+import android.hardware.Camera;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -63,7 +64,8 @@ public class SettingsMenuFragment extends Fragment {
 
                 if (isChecked) {
                     buttonView.setText("On");
-                    Toast.makeText(getActivity(), "On", Toast.LENGTH_SHORT).show();
+
+                     Toast.makeText(getActivity(), "On", Toast.LENGTH_SHORT).show();
                 } else {
                     buttonView.setText("Off");
                     Toast.makeText(getActivity(), "Off", Toast.LENGTH_SHORT).show();
