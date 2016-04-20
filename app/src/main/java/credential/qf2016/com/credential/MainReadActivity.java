@@ -97,8 +97,8 @@ public class MainReadActivity extends AppCompatActivity {
                     MyFragmentDialog newf = new MyFragmentDialog();
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     transaction.replace(R.id.drawer_layout_main, newf);
-
-                    transaction.addToBackStack("tag");
+                   // transaction.show(newf);
+                   transaction.addToBackStack("tag");
                     transaction.commit();
 
 

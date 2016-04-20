@@ -38,16 +38,20 @@ public class MyFragmentDialog extends Fragment {
         entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getView().setVisibility(View.INVISIBLE);
 
 
                 try {
 
                     ((MainReadActivity) getActivity()).cameraSource.start(((MainReadActivity) getActivity()).cameraView.getHolder());
-
+                    getView().setVisibility(View.INVISIBLE);
+                    close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
+
+
+
 
             }
 
@@ -56,12 +60,15 @@ public class MyFragmentDialog extends Fragment {
         sair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getView().setVisibility(View.INVISIBLE);
+
                 try {
                     ((MainReadActivity) getActivity()).cameraSource.start(((MainReadActivity) getActivity()).cameraView.getHolder());
+                    getView().setVisibility(View.INVISIBLE);
+                    close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
 
             }
         });
@@ -71,6 +78,9 @@ public class MyFragmentDialog extends Fragment {
     }
 
 
+    public void close(){
+        getActivity().getFragmentManager().beginTransaction().remove(this).commit();
+    }
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
