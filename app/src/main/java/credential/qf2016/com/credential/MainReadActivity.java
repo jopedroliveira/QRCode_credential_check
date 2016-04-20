@@ -31,7 +31,6 @@ public class MainReadActivity extends AppCompatActivity {
     public CameraSource.Builder cameraSourceB;
     public String textInfo;
     private Vibrator v;
-    private Camera camera;
 
     @Override
     @SuppressWarnings("deprecation")
@@ -49,10 +48,10 @@ public class MainReadActivity extends AppCompatActivity {
 
         barcodeDetector = new BarcodeDetector.Builder(this).setBarcodeFormats(Barcode.QR_CODE).build();
 
-        cameraSourceB = new CameraSource.Builder(this, barcodeDetector).setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
+        cameraSourceB = new CameraSource.Builder(this, barcodeDetector)
+                .setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
+
         cameraSource = cameraSourceB.build();
-
-
 
 
         cameraView.getHolder().addCallback(new SurfaceHolder.Callback() {
@@ -60,8 +59,8 @@ public class MainReadActivity extends AppCompatActivity {
             public void surfaceCreated(SurfaceHolder holder) {
 
                 try {
-                    cameraSource.start(cameraView.getHolder());
 
+                    cameraSource.start(cameraView.getHolder());
 
                 } catch (IOException ie) {
                     Log.e("CAMERA SOURCE", ie.getMessage());
@@ -91,23 +90,18 @@ public class MainReadActivity extends AppCompatActivity {
                 final SparseArray<Barcode> barcodes = detections.getDetectedItems();
 
                 if (barcodes.size() != 0) {
-                    barcodeInfo.post(new Runnable() {    // Use the post method of the TextView
-                        public void run() {
+
+                    v.vibrate(500);
+                    textInfo = barcodes.valueAt(0).displayValue;
+
+                    MyFragmentDialog newf = new MyFragmentDialog();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.drawer_layout_main, newf);
+
+                    transaction.addToBackStack("tag");
+                    transaction.commit();
 
 
-                            v.vibrate(500);
-                            textInfo = barcodes.valueAt(0).displayValue;
-
-                            MyFragmentDialog newf = new MyFragmentDialog();
-                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                            transaction.replace(R.id.drawer_layout_main, newf);
-
-                            transaction.addToBackStack("tag");
-                            transaction.commit();
-
-
-                        }
-                    });
                 }
             }
 
@@ -123,7 +117,5 @@ public class MainReadActivity extends AppCompatActivity {
 
 
 }
-
-
 
 

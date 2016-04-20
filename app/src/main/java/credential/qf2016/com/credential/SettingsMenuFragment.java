@@ -64,11 +64,12 @@ public class SettingsMenuFragment extends Fragment {
 
                 if (isChecked) {
                     buttonView.setText("On");
-
-                     Toast.makeText(getActivity(), "On", Toast.LENGTH_SHORT).show();
+                    ((MainReadActivity) getActivity()).cameraSource.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+                //     Toast.makeText(getActivity(), "On", Toast.LENGTH_SHORT).show();
                 } else {
                     buttonView.setText("Off");
-                    Toast.makeText(getActivity(), "Off", Toast.LENGTH_SHORT).show();
+                    ((MainReadActivity) getActivity()).cameraSource.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+                 //   Toast.makeText(getActivity(), "Off", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -87,7 +88,7 @@ public class SettingsMenuFragment extends Fragment {
         spinnerGate.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getActivity(), spinnerGate.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+             //   Toast.makeText(getActivity(), spinnerGate.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
             }
 
             @Override

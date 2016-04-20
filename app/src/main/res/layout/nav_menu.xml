@@ -88,9 +88,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="40"
-                android:checked="true"
+                android:checked="false"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="On" />
+                android:text="Off" />
         </LinearLayout>
 
         <LinearLayout

@@ -1,9 +1,12 @@
 package credential.qf2016.com.credential;
 
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -36,13 +39,18 @@ public class MyFragmentDialog extends Fragment {
             @Override
             public void onClick(View v) {
                 getView().setVisibility(View.INVISIBLE);
+
+
                 try {
+
                     ((MainReadActivity) getActivity()).cameraSource.start(((MainReadActivity) getActivity()).cameraView.getHolder());
 
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
             }
+
         });
 
         sair.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +77,7 @@ public class MyFragmentDialog extends Fragment {
         info = (TextView) getView().findViewById(R.id.title_information);
         info.setText(((MainReadActivity) getActivity()).textInfo.toString());
 
-        ((MainReadActivity)getActivity()).cameraSource.stop();
+        ((MainReadActivity) getActivity()).cameraSource.stop();
 
     }
 
