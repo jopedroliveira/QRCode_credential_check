@@ -187,6 +187,60 @@
     </LinearLayout>
 
 
+
+    <LinearLayout
+        android:layout_below="@id/l6"
+        android:id="@+id/l7"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="16dp"
+        >
+        <TextView
+            android:id="@+id/tag8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Atual: "
+            android:textSize="18sp"
+            android:textStyle="normal|bold"/>
+        <TextView
+            android:id="@+id/atual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:gravity="left"
+            android:text="defaultValue "
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@id/l7"
+        android:id="@+id/l8"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="16dp"
+        >
+
+    <TextView
+        android:id="@+id/lastlog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="defaultValue "
+        />
+    </LinearLayout>
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -202,7 +256,7 @@
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:text="Entrar"
 
-            android:textColor="#fff" />
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/sair"

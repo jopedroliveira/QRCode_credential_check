@@ -14,7 +14,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.TextView;
 
-//import com.google.android.gms.vision.CameraSource;
+
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
@@ -30,7 +30,8 @@ public class MainReadActivity extends AppCompatActivity {
     public CameraSource cameraSource;
     public CameraSource.Builder cameraSourceB;
     public String textInfo;
-    private Vibrator v;
+    public Credential credential;
+    public Vibrator v;
 
     @Override
     @SuppressWarnings("deprecation")
@@ -92,19 +93,28 @@ public class MainReadActivity extends AppCompatActivity {
                 if (barcodes.size() != 0) {
 
                     v.vibrate(500);
-                    textInfo = barcodes.valueAt(0).displayValue;
-
                     MyFragmentDialog newf = new MyFragmentDialog();
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.drawer_layout_main, newf);
-                   // transaction.show(newf);
-                   transaction.addToBackStack("tag");
-                    transaction.commit();
 
+                    credential = new Credential(barcodes.valueAt(0).displayValue, getApplicationContext());
 
+                    if (credential.validate()) {
+                        if (credential.loadDb()) {
+
+                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                            transaction.replace(R.id.drawer_layout_main, newf);
+                            transaction.addToBackStack("tag");
+                            transaction.commit();
+                        } else {
+
+                        }
+
+                    } else {
+                        // criar fragmento de acesso negado
+                        // enviar mensagem para credenciação
+                    }
                 }
-            }
 
+            }
         });
 
 
