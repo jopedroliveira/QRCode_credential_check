@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/Base.AlertDialog.AppCompat.Light"
     android:layout_width="200dp"
     android:layout_height="match_parent"
@@ -7,8 +7,9 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/settings"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
@@ -120,31 +121,75 @@
         </LinearLayout>
     </LinearLayout>
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="#c1c1c1"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="76dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_above="@+id/closeall"/>
-
-    <Button
-        android:id="@+id/closeall"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        android:paddingBottom="8dp"
-        android:paddingTop="8dp"
-        android:text="Sair"
-        android:textAllCaps="false"
-        android:textSize="14sp"
-        android:onClick="finishApp"/>
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="46dp"
+        android:orientation="vertical">
+
+        <View
+
+            android:id="@+id/divider3"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_above="@+id/updatenow"
+            android:layout_gravity="bottom"
+            android:background="#c1c1c1" />
+        <Button
+            android:id="@+id/updatenow"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/devider2"
+            android:clickable="true"
+            android:onClick="syncNow"
+            android:text="Sincronizar"
+            android:textAllCaps="false"
+            android:textSize="14sp" />
+        <View
+
+            android:id="@+id/divider2"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_above="@+id/restartlocalbd"
+            android:layout_gravity="bottom"
+            android:background="#c1c1c1" />
+        <Button
+            android:id="@+id/restartlocalbd"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/divider"
+            android:clickable="true"
+            android:onClick="pullServer"
+            android:text="Atualizar tudo"
+            android:textAllCaps="false"
+            android:textSize="14sp" />
 
 
+        <View
 
-</FrameLayout>
+            android:id="@+id/divider"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_above="@+id/closeall"
+            android:layout_gravity="bottom"
+            android:background="#c1c1c1" />
+
+        <Button
+            android:id="@+id/closeall"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/divider"
+            android:clickable="true"
+            android:onClick="finishApp"
+            android:text="Sair"
+            android:textAllCaps="false"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</RelativeLayout>

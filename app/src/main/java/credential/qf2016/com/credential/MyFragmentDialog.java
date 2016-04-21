@@ -34,7 +34,7 @@ public class MyFragmentDialog extends Fragment {
         sair = (Button) view.findViewById(R.id.sair);
         entrar = (Button) view.findViewById(R.id.entrar);
 
-        info = (TextView) view.findViewById(R.id.title_information);
+        info = (TextView) view.findViewById(R.id.identificationnumber);
         entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,12 +84,22 @@ public class MyFragmentDialog extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        info = (TextView) getView().findViewById(R.id.title_information);
+        info = (TextView) getView().findViewById(R.id.identificationnumber);
         info.setText(((MainReadActivity) getActivity()).textInfo.toString());
 
         ((MainReadActivity) getActivity()).cameraSource.stop();
 
     }
 
+
+    public void onBackPressed() {
+        try {
+            ((MainReadActivity) getActivity()).cameraSource.start(((MainReadActivity) getActivity()).cameraView.getHolder());
+            getView().setVisibility(View.INVISIBLE);
+            close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
