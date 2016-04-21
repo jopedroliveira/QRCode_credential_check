@@ -182,7 +182,8 @@ public class SettingsMenuFragment extends Fragment {
 
     public void setUp(DrawerLayout drawerLayout) {
         mDrawerLayout = drawerLayout;
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
+mDrawerLayout.setDrawerListener(mDrawerToggle);
+
 
     }
 
