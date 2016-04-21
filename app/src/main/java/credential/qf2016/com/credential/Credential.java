@@ -185,6 +185,7 @@ public class Credential {
 
     public boolean loadDb() {
         this.area = -1;
+        this.area_s=  "fora";
         this.name = "ze";
 
 

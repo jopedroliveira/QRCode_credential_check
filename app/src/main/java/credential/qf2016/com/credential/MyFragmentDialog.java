@@ -66,9 +66,10 @@ public class MyFragmentDialog extends Fragment {
                         break;
                     case 2:
                         dialog("Nao tem premissão para entrar hoje");
-                        ((MainReadActivity) getActivity()).v.vibrate(500);
+                        //((MainReadActivity) getActivity()).v.vibrate(500);
+
                         // Criar mensagem de erro
-                        //set text alert
+                        // set text alert
                         // nao pode entrar nesse dia
                         break;
                     case 3:
