@@ -287,7 +287,7 @@ public class MainReadActivity extends AppCompatActivity {
 
     public void settings() {
         mainHandler.removeCallbacksAndMessages(null);
-        Passcode newf = new Passcode();
+        Fragment_Passcode newf = new Fragment_Passcode();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.drawer_layout_main, newf);
         transaction.addToBackStack("tag");

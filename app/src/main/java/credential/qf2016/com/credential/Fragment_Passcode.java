@@ -3,14 +3,19 @@ package credential.qf2016.com.credential;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.InputType;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -20,7 +25,7 @@ import java.io.IOException;
 /**
  * Created by PedroOliveira on 27/09/16.
  */
-public class Passcode extends Fragment {
+public class Fragment_Passcode extends Fragment {
 
     private Toolbar toolbar;
     private String insertedPin;
@@ -62,13 +67,102 @@ public class Passcode extends Fragment {
             }
         });
 
+        n1 = (EditText) getActivity().findViewById(R.id.first);
+        n2 = (EditText) getActivity().findViewById(R.id.second);
+        n3 = (EditText) getActivity().findViewById(R.id.third);
+        n4 = (EditText) getActivity().findViewById(R.id.fourth);
+
+
+        n1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                if(n1.getText().toString().length()<=0)     //size as per your requirement
+                {
+                    n2.requestFocus();
+                }
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        n2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                if(n2.getText().toString().length()<=0)     //size as per your requirement
+                {
+                    n3.requestFocus();
+                }
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        n3.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                if(n3.getText().toString().length()<=0)     //size as per your requirement
+                {
+                    n4.requestFocus();
+                }
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        n4.addTextChangedListener(new TextWatcher() {
+
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                if(n4.getText().toString().length()<=0)     //size as per your requirement
+                {
+
+                    InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+
+                }
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                n1 = (EditText) getActivity().findViewById(R.id.first);
-                n2 = (EditText) getActivity().findViewById(R.id.second);
-                n3 = (EditText) getActivity().findViewById(R.id.third);
-                n4 = (EditText) getActivity().findViewById(R.id.fourth);
+
 
                 String nn1 = n1.getText().toString();
                 String nn2 = n2.getText().toString();

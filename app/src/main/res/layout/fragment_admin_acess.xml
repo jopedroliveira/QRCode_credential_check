@@ -11,11 +11,11 @@
         layout="@layout/app_bar" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/app_bar"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="52dp"
         android:orientation="vertical">
 
         <TextView
@@ -30,37 +30,38 @@
 
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/auxtext"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_gravity="center">
 
             <EditText
                 android:id="@+id/first"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
-                android:inputType="numberPassword"
+                android:inputType="textPassword|number"
                 android:maxLength="1" />
 
             <EditText
                 android:id="@+id/second"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
-                android:inputType="numberPassword"
+                android:inputType="textPassword|number"
                 android:maxLength="1" />
 
             <EditText
                 android:id="@+id/third"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
-                android:inputType="numberPassword"
+                android:inputType="textPassword|number"
                 android:maxLength="1" />
 
             <EditText
                 android:id="@+id/fourth"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
-                android:inputType="numberPassword"
+                android:inputType="textPassword|number"
                 android:maxLength="1" />
 
 
