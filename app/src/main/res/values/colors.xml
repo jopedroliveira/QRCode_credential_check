@@ -6,4 +6,14 @@
     <color name="navbarBackground">#e4e4e4</color>
     <color name="red">#e60000</color>
     <color name="white">#fff</color>
+
+    <color name="entrarRealcar">#009688</color>
+    <color name="entrarNormal">#009688</color>
+    <color name="entrarDesvan">#CCDFDE</color>
+    <color name="sairRealcar">#4472C4</color>
+    <color name="sairNormal">#4472C4</color>
+    <color name="sairDesvan">#DAE3F3</color>
+    <color name="black">#CC000000</color>
+    <color name="realblack">#000000</color>
+
 </resources>
